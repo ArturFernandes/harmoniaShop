@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Harmonia Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Registro de Usuário</h1>
+    </header>
+    <nav>
+        <a href="index.php">Home</a>
+    </nav>
+    <div class="container">
+        <form action="registro.php" method="post">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+
+            <label for="endereco">Endereço:</label>
+            <input type="text" id="endereco" name="endereco" required>
+
+            <input type="submit" value="Registrar">
+        </form>
+    </div>
+    <div class="footer">
+        <p>Harmonia Shop &copy; 2024</p>
+    </div>
+</body>
+</html>
