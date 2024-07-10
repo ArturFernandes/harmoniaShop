@@ -52,6 +52,7 @@ $isLoggedIn = isset($_SESSION['email']);
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 echo '<div class="produto">';
+                echo '<img src="' . $row["imagem_url"] . '" alt="' . $row["nome"] . '" class="imagem_produto">';
                 echo '<p>Nome: ' . $row["nome"] . ' - Descrição: ' . $row["descricao"] . ' - Preço: ' . $row["preco"] . '</p>';
                 echo '<form method="post" action="adicionar_carrinho.php">';
                 echo '<input type="hidden" name="produto_id" value="' . $row["id"] . '">';
