@@ -1,4 +1,3 @@
-<!-- index.php -->
 <?php
 session_start();
 $isLoggedIn = isset($_SESSION['email']);
@@ -9,18 +8,18 @@ $isLoggedIn = isset($_SESSION['email']);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harmonia Shop</title>
+    <title>Ruydo</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Bem-vindo à Harmonia Shop</h1>
+        <h1>Bem-vindo à Ruydo</h1>
     </header>
     <nav>
         <a href="index.php">Home</a>
         <?php if (!$isLoggedIn): ?>
             <a href="login.html">Login</a>
-            <a href="register.html">Registrar</a>
+            <a href="registro.html">Registrar</a>
         <?php else: ?>
             <a href="perfil.php">Perfil</a>
         <?php endif; ?>
@@ -52,8 +51,10 @@ $isLoggedIn = isset($_SESSION['email']);
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 echo '<div class="produto">';
+                echo '<a href="produto_detalhes.php?id=' . $row["id"] . '">';
                 echo '<img src="' . $row["imagem_url"] . '" alt="' . $row["nome"] . '" class="imagem_produto">';
                 echo '<p>Nome: ' . $row["nome"] . ' - Descrição: ' . $row["descricao"] . ' - Preço: ' . $row["preco"] . '</p>';
+                echo '</a>';
                 echo '<form method="post" action="adicionar_carrinho.php">';
                 echo '<input type="hidden" name="produto_id" value="' . $row["id"] . '">';
                 echo '<button type="submit">Adicionar ao Carrinho</button>';
@@ -68,7 +69,7 @@ $isLoggedIn = isset($_SESSION['email']);
         ?>
     </div>
     <div class="footer">
-        <p>Harmonia Shop &copy; 2024</p>
+        <p>Ruydo &copy; 2024</p>
     </div>
 </body>
 </html>
